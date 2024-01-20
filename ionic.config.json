@@ -1,0 +1,8 @@
+{
+  "name": "SpringBank",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "7d4b9fde"
+}
