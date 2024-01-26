@@ -1,3 +1,91 @@
+<ion-modal trigger="open-modal" class="main-menu-modal" slot="bottom">
+  <ng-template>
+    <ion-content class="ion-padding">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-tab-button tab="tab4" href="/tabs/tab3">
+              <ion-icon aria-hidden="true" name="cash-outline"></ion-icon>
+              <ion-label>Pay</ion-label>
+            </ion-tab-button>
+          </ion-col>
+          <ion-col>
+            <ion-tab-button tab="tab4" href="/tabs/tab3">
+              <ion-icon aria-hidden="true" name="basket-outline"></ion-icon>
+              <ion-label>Buy</ion-label>
+            </ion-tab-button>
+          </ion-col>
+          <ion-col>
+            <ion-tab-button tab="tab4" href="/tabs/tab3">
+              <ion-icon aria-hidden="true" name="cart-outline"></ion-icon>
+              <ion-label>Product Shop</ion-label>
+            </ion-tab-button>
+          </ion-col>
+          <ion-col>
+            <ion-tab-button>
+              <ion-icon aria-hidden="true" name="bookmarks-outline"></ion-icon>
+              <ion-label>My Offers</ion-label>
+            </ion-tab-button>
+          </ion-col>  
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-tab-button tab="tab4" href="/tabs/tab3">
+              <ion-icon aria-hidden="true" name="podium-outline"></ion-icon>
+              <ion-label>Invest</ion-label>
+            </ion-tab-button>
+          </ion-col>
+          <ion-col>
+            <ion-tab-button tab="tab4" href="/tabs/tab3">
+              <ion-icon aria-hidden="true" name="logo-usd"></ion-icon>
+              <ion-label>Forex</ion-label>
+            </ion-tab-button>
+          </ion-col>
+          <ion-col>
+            <ion-tab-button tab="tab4" href="/tabs/tab3">
+              <ion-icon aria-hidden="true" name="help-buoy-outline"></ion-icon>
+              <ion-label>Insurance</ion-label>
+            </ion-tab-button>
+          </ion-col>
+          <ion-col>
+            <ion-tab-button (click)="logout()">
+              <ion-icon aria-hidden="true" name="call-outline"></ion-icon>
+              <ion-label>Contact Us</ion-label>
+            </ion-tab-button>
+          </ion-col>
+          
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-tab-button tab="tab4" href="/tabs/tab3">
+              <ion-icon aria-hidden="true" name="wallet-outline"></ion-icon>
+              <ion-label>Business</ion-label>
+            </ion-tab-button>
+          </ion-col>
+          <ion-col>
+            <ion-tab-button (click)="logout()">
+              <ion-icon aria-hidden="true" name="power-outline"></ion-icon>
+              <ion-label>Sign out</ion-label>
+            </ion-tab-button>
+          </ion-col>
+          <ion-col>
+            <!-- <ion-tab-button tab="tab4" href="/tabs/tab3">
+              <ion-icon aria-hidden="true" name="person-circle-outline"></ion-icon>
+              <ion-label>Profile</ion-label>
+            </ion-tab-button> -->
+          </ion-col>
+          <ion-col>
+            <!-- <ion-tab-button (click)="logout()">
+              <ion-icon aria-hidden="true" name="person-circle-outline"></ion-icon>
+              <ion-label>Sign out</ion-label>
+            </ion-tab-button> -->
+          </ion-col>
+          
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </ng-template>
+</ion-modal>
 <ion-tabs>
 
   <ion-tab-bar slot="bottom">
@@ -16,16 +104,14 @@
       <ion-label>Messages</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab4" href="/tabs/tab3">
+    <ion-tab-button tab="profile" href="/tabs/profile">
       <ion-icon aria-hidden="true" name="person-circle-outline"></ion-icon>
       <ion-label>Profile</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab5" href="/tabs/tab3">
+    <ion-tab-button id="open-modal" expand="block">
       <ion-icon aria-hidden="true" name="menu-outline"></ion-icon>
       <ion-label>Menu</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
-  
-
 </ion-tabs>

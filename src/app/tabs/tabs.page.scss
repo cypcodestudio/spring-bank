@@ -1,1 +1,6 @@
-
+::ng-deep ion-modal { 
+    --height: 30vh; 
+    margin-top: 70vh; 
+    border: 1px solid #ccc;
+    border-radius: 50px 50px 0 0;
+}

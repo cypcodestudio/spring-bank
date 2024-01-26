@@ -1,19 +1,23 @@
-import { Component, Renderer2 } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { AuthenticationService } from '../common/services/authentication.service';
+import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { IonModal, ModalController } from '@ionic/angular';
+import { AuthenticationService } from 'src/app/common/services/authentication.service';
 
 @Component({
-  selector: 'app-tabs',
-  templateUrl: 'tabs.page.html',
-  styleUrls: ['tabs.page.scss']
+  selector: 'app-main-app-menu',
+  templateUrl: './main-app-menu.page.html',
+  styleUrls: ['./main-app-menu.page.scss'],
 })
-export class TabsPage {
+export class MainAppMenuPage implements OnInit {
 
   constructor(private authenticationService: AuthenticationService,private renderer: Renderer2, private modalController: ModalController) {
     this.renderer.listen('window', 'click', (e: Event) => {
       this.onClickModalDismiss();
     })
   }
+
+  ngOnInit() {
+  }
+
 
   logout(){
     this.authenticationService.logout();
@@ -25,5 +29,4 @@ export class TabsPage {
       modal.dismiss();
     }
   }
-
 }
