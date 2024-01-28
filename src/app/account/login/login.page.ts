@@ -52,10 +52,8 @@ export class LoginPage implements OnInit {
     if(this.loginFormGroup.valid){
       this.authenticationService.userLogin(request).then(()=>{
         //todo Validate token expiry before redirect
-        var token: any = localStorage.getItem("token");
-       if(token != null){
-        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
-        this.router.navigate(['dashboard/tabs/tab1']));
+        if(this.authenticationService.isAuthenticated()){
+        this.authenticationService.redirectTo('dashboard/tabs/tab1');
        }
       });
     }  
