@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ELookup } from './common/enum/ELookup';
+import { AuthenticationInterceptorProvider } from './common/services/authentication.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,7 @@ import { ELookup } from './common/enum/ELookup';
         allowedDomains: ["localhost:9002"]
       },
     })],
-  providers: [CommonModule, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [CommonModule, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AuthenticationInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
