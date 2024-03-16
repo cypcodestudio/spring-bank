@@ -6,10 +6,14 @@ import { AuthorizationGuard } from './common/services/authorization.guard';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./account/login/login.module').then( m => m.LoginPageModule)
+    redirectTo: '/login',
+    pathMatch: 'full'
   },
   {
-    path: 'dashboard',
+    path: 'login',
+    loadChildren: () => import('./account/login/login.module').then( m => m.LoginPageModule)
+  },{
+    path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
     canActivate: [AuthenticationGuard, AuthorizationGuard],
     data: {
@@ -31,6 +35,30 @@ const routes: Routes = [
     data: {
       roles: ['ROLE_USER', 'ROLE_MANAGER', 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN']
     }
+  },
+  {
+    path: 'update-password',
+    loadChildren: () => import('./account/update-password/update-password.module').then( m => m.UpdatePasswordPageModule)
+  },
+  {
+    path: 'payment',
+    loadChildren: () => import('./transact/payment/payment.module').then( m => m.PaymentPageModule)
+  },
+  {
+    path: 'transfer',
+    loadChildren: () => import('./transact/transfer/transfer.module').then( m => m.TransferPageModule)
+  },
+  {
+    path: 'purchase',
+    loadChildren: () => import('./transact/purchase/purchase.module').then( m => m.PurchasePageModule)
+  },
+  {
+    path: 'withdraw',
+    loadChildren: () => import('./transact/withdraw/withdraw.module').then( m => m.WithdrawPageModule)
+  },
+  {
+    path: 'transaction-history',
+    loadChildren: () => import('./transact/transaction-history/transaction-history.module').then( m => m.TransactionHistoryPageModule)
   }
 ];
 @NgModule({

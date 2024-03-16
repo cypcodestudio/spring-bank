@@ -63,6 +63,21 @@
     margin-bottom: 40px;
     --box-shadow: none;
 }
+ion-col {
+    color: #fff;
+    text-align: center;
+}
+
+.pad-button{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.pad-text{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 .signup-text{
     a{
         text-decoration: none;

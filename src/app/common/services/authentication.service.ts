@@ -7,6 +7,7 @@ import { Authenticationrequest } from 'src/app/account/login/param/Authenticatio
 import { RegistrationRequest } from 'src/app/account/login/param/RegistrationRequest';
 import { environment } from 'src/environments/environment';
 import { ELookup } from '../enum/ELookup';
+import { UpdatePasswordRequest } from 'src/app/account/update-password/param/UpdatePasswordRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,11 @@ export class AuthenticationService {
      }).catch(this.handleError);
   }
 
+  updatePassword(request: UpdatePasswordRequest){
+    return this.http.post(`${this.API_URL}user/update-password`,request).toPromise().then((response: any)=>{
+      return response;
+    }).catch(this.handleError);
+  }
   userRegister(request: RegistrationRequest): Promise<any>{
    return this.http.post<any>(`${this.API_URL}user/register`,request)
     .toPromise().then((response: any) =>{
@@ -66,7 +72,7 @@ export class AuthenticationService {
   }
 
   private handleError(exception: HttpErrorResponse): Observable<never> {
-    console.log(`Service Exception: ${exception}`);
+    console.log(`Service Exception: ${exception.message}`);
     return throwError(`Service Exception: ${exception.message}`);
   }
 }

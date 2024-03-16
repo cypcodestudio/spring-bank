@@ -24,3 +24,27 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+/* CUSTOM SPRINGBANK STYLE*/
+
+.app-green-color{
+    color: #48C9B0;
+}
+
+.app-blue-color{
+    color: #1A5276;
+}
+.app-green-bg-color{
+    color: #48C9B0;
+}
+
+.app-blue-bg-color{
+    color: #1A5276;
+}
+
+ion-loading.custom-loading {
+    --background: #e3edff;
+    --spinner-color: #1c6dff;
+  
+    color: #1c6dff;
+  }

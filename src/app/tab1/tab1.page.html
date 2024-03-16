@@ -9,22 +9,25 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Dashboard</ion-title>
+      <ion-title>Dashboard</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-card class="dashboard-search-container">
+    <ion-searchbar search-icon="search-circle" placeholder="Search"></ion-searchbar>
+  </ion-card>
 
-  <ion-card>
+  <ion-card class="current-balance-card">
     <ion-card-header>
-      <ion-card-title>&dollar; 724,654</ion-card-title>
-      <ion-card-subtitle>Current Balance</ion-card-subtitle>
+      <ion-card-title class="app-green-color">&dollar; {{payload?.balance}}</ion-card-title>
+      <ion-card-subtitle>{{payload?.account}} Balance</ion-card-subtitle>
     </ion-card-header>
-  
+
     <ion-card-content>
       Here's a small text description for the card content. Nothing more, nothing less.
     </ion-card-content>
-  
-    <ion-button fill="clear">Track</ion-button>
-    <ion-button fill="clear">Transact</ion-button>
+
+    <ion-button fill="clear" href="/transaction-history">Track</ion-button>
+    <ion-button fill="clear" href="/tabs/bank">Transact</ion-button>
   </ion-card>
 
   <ion-card>
@@ -35,22 +38,63 @@
     <ion-card-content>
       <ion-list>
         <ion-item>
-            <ion-icon aria-hidden="true" name="receipt-outline" slot="start"></ion-icon>
+          <ion-icon class="app-green-color" aria-hidden="true" name="receipt-outline" slot="start"></ion-icon>
+          <ion-label>
+            <h1>Money In</h1>
+            <p>Payment amount &dollar;245,000</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon class="app-green-color" aria-hidden="true" name="receipt-outline" slot="start"></ion-icon>
+          <ion-label>
+            <h1>Money Out</h1>
+            <p>Payment amount &dollar;720</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon class="app-green-color" aria-hidden="true" name="receipt-outline" slot="start"></ion-icon>
+          <ion-label>
+            <h1>Money In</h1>
+            <p>Payment amount &dollar;18,000</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-icon class="app-green-color" aria-hidden="true" name="receipt-outline" slot="start"></ion-icon>
+          <ion-label>
+            <h1>Money Out</h1>
+            <p>Payment amount &dollar;101,000</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Recent Messages</ion-card-title>
+      <ion-card-subtitle>Notifications</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon aria-hidden="true" name="receipt-outline" slot="start"></ion-icon>
           <ion-label>Money In: Payment amount &dollar;245,000 into acc...</ion-label>
         </ion-item>
-  
+
         <ion-item>
-            <ion-icon aria-hidden="true" name="receipt-outline" slot="start"></ion-icon>
+          <ion-icon aria-hidden="true" name="receipt-outline" slot="start"></ion-icon>
           <ion-label>In-App transaction purchase Mobile Data amount &dollar;10...</ion-label>
         </ion-item>
-  
+
         <ion-item>
-            <ion-icon aria-hidden="true" name="receipt-outline" slot="start"></ion-icon>
+          <ion-icon aria-hidden="true" name="receipt-outline" slot="start"></ion-icon>
           <ion-label>Money Out: Payment amount &dollar;18,000 from acc...</ion-label>
         </ion-item>
-  
+
         <ion-item lines="none">
-            <ion-icon aria-hidden="true" name="receipt-outline" slot="start"></ion-icon>
+          <ion-icon aria-hidden="true" name="receipt-outline" slot="start"></ion-icon>
           <ion-label>Money In: Payment amount &dollar;101,000 into acc...</ion-label>
         </ion-item>
       </ion-list>

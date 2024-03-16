@@ -10,4 +10,144 @@
       <ion-title size="large">Profile</ion-title>
     </ion-toolbar>
   </ion-header>
+ <div class="container" *ngIf="screen == 'view'">
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-card-title>Card Title</ion-card-title> -->
+      <ion-card-subtitle>Entity Number</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{payload?.entityNo}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-card-title>Card Title</ion-card-title> -->
+      <ion-card-subtitle>First name</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{payload?.firstname}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-card-title>Card Title</ion-card-title> -->
+      <ion-card-subtitle>Last name</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{payload?.lastname}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-card-title>Card Title</ion-card-title> -->
+      <ion-card-subtitle>Email Address</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{payload?.email}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-card-title>Card Title</ion-card-title> -->
+      <ion-card-subtitle>Mobile Number</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{payload?.mobile}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Action</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button (click)="change('edit')">Edit</ion-button>
+      <ion-button href="update-password">Change Password</ion-button>
+    </ion-card-content>
+  </ion-card>
+</div>
+  <div class="container" *ngIf="screen == 'edit'">
+  <form [formGroup]="profileFormGroup">
+    <ion-card>
+      <ion-card-header>
+        <!-- <ion-card-title>Card Title</ion-card-title> -->
+        <ion-card-subtitle>Entity Number</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        {{payload?.entityNo}}
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <!-- <ion-card-title>Card Title</ion-card-title> -->
+        <ion-card-subtitle>First name</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item lines="none" class="ion-item">
+          <fieldset  class="input-item">
+            <!-- <legend>Entity Number</legend>  -->
+            <ion-input formControlName="firstname" type="text" placeholder="First name"></ion-input>
+          </fieldset>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <!-- <ion-card-title>Card Title</ion-card-title> -->
+        <ion-card-subtitle>Last name</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item lines="none" class="ion-item">
+          <fieldset  class="input-item">
+            <!-- <legend>Entity Number</legend>  -->
+            <ion-input formControlName="lastname" type="text" placeholder="Last name"></ion-input>
+          </fieldset>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <!-- <ion-card-title>Card Title</ion-card-title> -->
+        <ion-card-subtitle>Email Address</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item lines="none" class="ion-item">
+          <fieldset  class="input-item">
+            <!-- <legend>Entity Number</legend>  -->
+            <ion-input formControlName="email" type="text" placeholder="Email"></ion-input>
+          </fieldset>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <!-- <ion-card-title>Card Title</ion-card-title> -->
+        <ion-card-subtitle>Mobile Number</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item lines="none" class="ion-item">
+          <fieldset  class="input-item">
+            <!-- <legend>Entity Number</legend>  -->
+            <ion-input formControlName="mobile" type="text" placeholder="Mobile No"></ion-input>
+          </fieldset>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Action</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button (click)="save()">Save</ion-button>
+        <ion-button (click)="cancel()">Cancel</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </form>
+  </div>
+  <ion-toast
+  [isOpen]="isToastOpen"
+  message="{{toastMessage}}"
+  [duration]="2000"
+  (didDismiss)="setOpen(false)"
+></ion-toast>
 </ion-content>

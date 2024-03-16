@@ -6,7 +6,7 @@ import { AuthorizationGuard } from '../common/services/authorization.guard';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     canActivate: [AuthenticationGuard, AuthorizationGuard],
     data: {
@@ -14,7 +14,7 @@ const routes: Routes = [
     },
     children: [
       {
-        path: 'tab1',
+        path: 'dashboard',
         loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule),
         canActivate: [AuthenticationGuard, AuthorizationGuard],
         data: {
@@ -22,7 +22,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'tab2',
+        path: 'bank',
         loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule),
         canActivate: [AuthenticationGuard, AuthorizationGuard],
         data: {
@@ -30,7 +30,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'tab3',
+        path: 'messages',
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule),
         canActivate: [AuthenticationGuard, AuthorizationGuard],
         data: {
@@ -42,27 +42,19 @@ const routes: Routes = [
         loadChildren: () => import('../account/profile/profile.module').then(m => m.ProfilePageModule),
         canActivate: [AuthenticationGuard, AuthorizationGuard],
         data: {
-          roles: ['ROLE_MANAGER', 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN']
-        }
-      },
-      {
-        path: 'tab5',
-        loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule),
-        canActivate: [AuthenticationGuard, AuthorizationGuard],
-        data: {
           roles: ['ROLE_USER', 'ROLE_MANAGER', 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN']
         }
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/dashboard',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/login',
     pathMatch: 'full'
   }
 ];
