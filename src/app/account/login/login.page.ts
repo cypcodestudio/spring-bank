@@ -53,7 +53,7 @@ export class LoginPage implements OnInit {
       this.authenticationService.userLogin(request).then(()=>{
         //todo Validate token expiry before redirect
         if(this.authenticationService.isAuthenticated()){
-        this.authenticationService.redirectTo('dashboard/tabs/tab1');
+        this.authenticationService.redirectTo('/tabs/dashboard');
        }
       });
     }  

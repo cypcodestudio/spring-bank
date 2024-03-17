@@ -65,8 +65,8 @@ export class AuthenticationService {
   }
 
   logout(){
-    localStorage.removeItem("token");
-    localStorage.removeItem("refresh_token");
+    localStorage.removeItem(ELookup.TOKEN_NAME);
+    localStorage.removeItem(ELookup.REFRESH_TOKEN_NAME);
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
         this.router.navigate(['']));
   }
