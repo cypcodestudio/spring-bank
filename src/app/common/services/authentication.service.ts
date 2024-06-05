@@ -49,6 +49,16 @@ export class AuthenticationService {
     let tokenDecoded = this.jwtHelper.decodeToken(this.token);
     return tokenDecoded.sub;
   }
+  get authorities(){
+    let authoritiesList = new Array();
+    let tokenPayload= this.jwtHelper.decodeToken(this.token);
+    if (this.isAuthenticated()) {
+      tokenPayload.role.forEach((claim: any) => {
+        authoritiesList.push(claim.authority);
+      });
+    }
+    return authoritiesList;
+  }
   public isAuthenticated(): boolean {
     if(this.token != null && this.jwtHelper.isTokenExpired(this.token)){
       let token: any = localStorage.getItem(ELookup.REFRESH_TOKEN_NAME);
